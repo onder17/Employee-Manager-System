@@ -1,0 +1,9 @@
+package tech.getarrays.employeemanager.business.abstracts;
+
+import tech.getarrays.employeemanager.dataAccess.abstracts.EmployeeRepository;
+
+public interface EmployeeService {
+	private final EmployeeRepository employeeRepository;
+	
+
+}

@@ -1,0 +1,5 @@
+package tech.getarrays.employeemanager.business.abstracts;
+
+public interface EmployeeService {
+
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çalışan Yönetim Sistemi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-users"></i> Çalışan Yönetim Sistemi</h1>
+                <p>Çalışanlarınızı kolayca yönetin</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Add Employee Section -->
+            <section class="add-employee-section">
+                <div class="card">
+                    <h2><i class="fas fa-plus-circle"></i> Yeni Çalışan Ekle</h2>
+                    <form id="addEmployeeForm" class="employee-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Ad Soyad</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-posta</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="jobTitle">Pozisyon</label>
+                                <input type="text" id="jobTitle" name="jobTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="imageUrl">Profil Fotoğrafı URL</label>
+                            <input type="url" id="imageUrl" name="imageUrl" placeholder="https://example.com/photo.jpg">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Çalışan Ekle
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Employees List Section -->
+            <section class="employees-section">
+                <div class="card">
+                    <div class="section-header">
+                        <h2><i class="fas fa-list"></i> Çalışan Listesi</h2>
+                        <div class="search-box">
+                            <input type="text" id="searchInput" placeholder="Çalışan ara...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <div id="employeesList" class="employees-grid">
+                        <!-- Employees will be loaded here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Edit Employee Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Çalışan Düzenle</h3>
+                <span class="close">&times;</span>
+            </div>
+            <form id="editEmployeeForm" class="employee-form">
+                <input type="hidden" id="editId" name="id">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editName">Ad Soyad</label>
+                        <input type="text" id="editName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmail">E-posta</label>
+                        <input type="email" id="editEmail" name="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editJobTitle">Pozisyon</label>
+                        <input type="text" id="editJobTitle" name="jobTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPhone">Telefon</label>
+                        <input type="tel" id="editPhone" name="phone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="editImageUrl">Profil Fotoğrafı URL</label>
+                    <input type="url" id="editImageUrl" name="imageUrl">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">İptal</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Güncelle
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content delete-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-exclamation-triangle"></i> Çalışanı Sil</h3>
+                <span class="close" onclick="closeDeleteModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Bu çalışanı silmek istediğinizden emin misiniz?</p>
+                <p><strong id="deleteEmployeeName"></strong></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeDeleteModal()">İptal</button>
+                <button class="btn btn-danger" onclick="confirmDelete()">
+                    <i class="fas fa-trash"></i> Sil
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>

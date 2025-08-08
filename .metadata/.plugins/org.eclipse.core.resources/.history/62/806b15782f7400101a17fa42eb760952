@@ -1,0 +1,21 @@
+package tech.getarrays.employeemanager.service;
+
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+
+import lombok.AllArgsConstructor;
+import tech.getarrays.employeemanager.model.Employee;
+import tech.getarrays.employeemanager.repo.EmployeeRepo;
+
+@Service
+@AllArgsConstructor
+public class EmployeeService {
+	private final EmployeeRepo employeeRepo;
+	
+	public Employee addEmployee(Employee employee) {
+		employee.setEmployeeCode(UUID.randomUUID().toString());
+		return employeeRepo.save(employee);
+	}
+
+}

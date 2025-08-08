@@ -1,0 +1,11 @@
+package tech.getarrays.employeemanager.business.concretes;
+
+import org.springframework.stereotype.Service;
+
+import tech.getarrays.employeemanager.business.abstracts.EmployeeService;
+
+
+@Service //This class is a business object
+public class EmployeeManager implements EmployeeService {
+
+}

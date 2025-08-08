@@ -1,0 +1,5 @@
+package tech.getarrays.employeemanager.entities.concretes;
+
+public class Employee {
+
+}
