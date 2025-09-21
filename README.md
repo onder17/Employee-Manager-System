@@ -1,4 +1,4 @@
-# 👥 Employee Management System
+# 👥 Employee Manager System
 
 With the Employee Management System, companies or individual users can easily manage their employee records.  
 This application allows users to:  
